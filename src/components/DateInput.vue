@@ -1,5 +1,6 @@
 <template>
   <div :class="{'input-group' : bootstrapStyling}">
+    <slot name="beforeDateInput"></slot>
     <!-- Calendar Button -->
     <span v-if="calendarButton" class="vdp-datepicker__calendar-button" :class="{'input-group-prepend' : bootstrapStyling}" @click="showCalendar" v-bind:style="{'cursor:not-allowed;' : disabled}">
       <span :class="{'input-group-text' : bootstrapStyling}">

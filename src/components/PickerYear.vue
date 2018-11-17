@@ -1,16 +1,22 @@
 <template>
   <div :class="[calendarClass, 'vdp-datepicker__calendar']" v-show="showYearView" :style="calendarStyle" @mousedown.prevent>
     <slot name="beforeCalendarHeader"></slot>
-    <header>
+    <header class="vdp-datepicker__header">
       <span
         @click="isRtl ? nextDecade() : previousDecade()"
         class="prev"
-        :class="{'disabled': isLeftNavDisabled}">&lt;</span>
+        :class="{'disabled': isLeftNavDisabled}">
+
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </span>
       <span>{{ getPageDecade }}</span>
       <span
         @click="isRtl ? previousDecade() : nextDecade()"
         class="next"
-        :class="{'disabled': isRightNavDisabled}">&gt;</span>
+        :class="{'disabled': isRightNavDisabled}">
+
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </span>
     </header>
     <span
       class="cell year"

@@ -1,16 +1,22 @@
 <template>
   <div :class="[calendarClass, 'vdp-datepicker__calendar']" v-show="showMonthView" :style="calendarStyle" @mousedown.prevent>
     <slot name="beforeCalendarHeader"></slot>
-    <header>
+    <header class="vdp-datepicker__header">
       <span
         @click="isRtl ? nextYear() : previousYear()"
         class="prev"
-        :class="{'disabled': isLeftNavDisabled}">&lt;</span>
+        :class="{'disabled': isLeftNavDisabled}">
+
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </span>
       <span class="month__year_btn" @click="showYearCalendar" :class="allowedToShowView('year') ? 'up' : ''">{{ pageYearName }}</span>
       <span
         @click="isRtl ? previousYear() : nextYear()"
         class="next"
-        :class="{'disabled': isRightNavDisabled}">&gt;</span>
+        :class="{'disabled': isRightNavDisabled}">
+
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </span>
     </header>
     <span class="cell month"
       v-for="month in months"
