@@ -1,5 +1,6 @@
 <template>
   <div class="vdp-datepicker" :class="[wrapperClass, isRtl ? 'rtl' : '']">
+    <slot name="datepickerIcon"></slot>
     <date-input
       :selectedDate="selectedDate"
       :resetTypedDate="resetTypedDate"
@@ -26,6 +27,7 @@
       @closeCalendar="close"
       @typedDate="setTypedDate"
       @clearDate="clearDate">
+      <slot name="beforeDateInput" slot="beforeDateInput"></slot>
       <slot name="afterDateInput" slot="afterDateInput"></slot>
     </date-input>
 
